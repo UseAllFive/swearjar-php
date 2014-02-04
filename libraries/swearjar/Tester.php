@@ -44,7 +44,7 @@ class Tester {
 	 * @return void
 	 */
 	public function scan($text, \Closure $callback ) {
-		preg_match_all('/\b[a-zA-Z-]+\b/', $text, $matches);
+		preg_match_all('/\b[\pL-]+\b/u', $text, $matches);
 		foreach ($matches[0] as $word) {
 			$types = isset($this->_matchers['simple'][strtolower($word)])
 				? $this->_matchers['simple'][strtolower($word)]
